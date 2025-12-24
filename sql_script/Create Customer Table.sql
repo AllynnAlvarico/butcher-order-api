@@ -1,0 +1,8 @@
+CREATE TABLE Customers (
+	customer_id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    phone VARCHAR(30) NOT NULL UNIQUE,
+    email VARCHAR(50) NOT NULL UNIQUE,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
