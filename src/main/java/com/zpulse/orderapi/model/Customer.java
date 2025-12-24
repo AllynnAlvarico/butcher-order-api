@@ -2,6 +2,7 @@ package com.zpulse.orderapi.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
 
 import java.time.LocalDate;
 
@@ -24,14 +25,21 @@ import java.time.LocalDate;
  * @-email: Email address of the customer.
  * @-created_at: Date when the customer was created.
  * @author Allynn Alvarico
+ * @CreatedOn
+ * @Date: 23/12/2025
+ * @By: Allynn Alvarico
+ * @UpdatedOn
+ * @Date: 24/12/2025
+ * @By: Allynn Alvarico
  */
 @Entity
-@Table(name = "Customers")
+@Table(name = "customers")
 @Data
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String customerId;
+    @Column(name = "customer_id")
+    private Long customer_id;
 
     @Column(name = "first_name")
     private String first_name;
@@ -46,5 +54,6 @@ public class Customer {
     private String email;
 
     @Column(name = "created_at")
-    private LocalDate  created_at;
+    private LocalDate  createdAt;
+
 }

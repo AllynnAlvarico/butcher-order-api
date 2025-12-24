@@ -4,6 +4,8 @@ import com.zpulse.orderapi.model.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 /**
  * Repository interface for Customer entity.
  * Extends JpaRepository to provide CRUD operations and more.
@@ -18,6 +20,14 @@ import org.springframework.stereotype.Repository;
  * @Methods:
  * @- Inherited methods from JpaRepository such as save, findById, findAll, deleteById, etc.
  * @author Allynn Alvarico
+ * @CreatedOn
+ * @Date: 23/12/2025
+ * @By: Allynn Alvarico
+ * @UpdatedOn
+ * @Date: 23/12/2025
+ * @By: Allynn Alvarico
  */
 @Repository
-public interface CustomerRepository extends JpaRepository<Customer, Long> {}
+public interface CustomerRepository extends JpaRepository<Customer, Long> {
+    Optional<Customer> findByEmail(String email);
+}

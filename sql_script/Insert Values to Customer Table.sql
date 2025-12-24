@@ -1,0 +1,10 @@
+insert into Customers (customer_id, first_name, last_name, phone, email, created_at) values (1, 'Christy', 'Ciciari', '081-052-6201', 'cciciari0@sciencedirect.com', '2025-12-05 16:24:52');
+insert into Customers (customer_id, first_name, last_name, phone, email, created_at) values (2, 'Roma', 'De Banke', '085-634-6251', 'rdebanke1@last.fm', '2025-01-19 21:22:40');
+insert into Customers (customer_id, first_name, last_name, phone, email, created_at) values (3, 'Louisette', 'Paschke', '088-160-2670', 'lpaschke2@oaic.gov.au', '2024-12-24 18:43:06');
+insert into Customers (customer_id, first_name, last_name, phone, email, created_at) values (4, 'Lauretta', 'Loomes', '089-189-2798', 'lloomes3@clickbank.net', '2025-07-13 23:45:13');
+insert into Customers (customer_id, first_name, last_name, phone, email, created_at) values (5, 'Virgina', 'Wick', '088-034-6223', 'vwick4@squidoo.com', '2025-09-16 11:50:27');
+insert into Customers (customer_id, first_name, last_name, phone, email, created_at) values (6, 'Bobette', 'Casazza', '080-761-7683', 'bcasazza5@state.gov', '2025-07-21 21:30:44');
+insert into Customers (customer_id, first_name, last_name, phone, email, created_at) values (7, 'Bartie', 'Van de Castele', '083-905-2779', 'bvandecastele6@sakura.ne.jp', '2025-12-05 12:59:02');
+insert into Customers (customer_id, first_name, last_name, phone, email, created_at) values (8, 'Hana', 'Bellson', '080-784-1758', 'hbellson7@google.cn', '2025-04-14 12:44:38');
+insert into Customers (customer_id, first_name, last_name, phone, email, created_at) values (9, 'Cordy', 'Gladding', '083-070-4902', 'cgladding8@npr.org', '2025-06-06 10:13:33');
+insert into Customers (customer_id, first_name, last_name, phone, email, created_at) values (10, 'Catlee', 'Avard', '086-297-0636', 'cavard9@jiathis.com', '2025-03-28 02:07:59');

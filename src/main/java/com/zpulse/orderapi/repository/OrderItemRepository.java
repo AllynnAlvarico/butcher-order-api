@@ -18,6 +18,12 @@ import org.springframework.stereotype.Repository;
  * @Methods:
  * @- Inherited methods from JpaRepository such as save, findById, findAll, deleteById, etc.
  * @author Allynn Alvarico
+ * @CreatedOn
+ * @Date: 23/12/2025
+ * @By: Allynn Alvarico
+ * @UpdatedOn
+ * @Date: 23/12/2025
+ * @By: Allynn Alvarico
  */
 @Repository
 public interface OrderItemRepository extends JpaRepository<OrderItem, Long> {}

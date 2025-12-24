@@ -17,6 +17,12 @@ import lombok.Data;
  * @-weight_kg: Weight of the product in kilograms.
  * @-total_price: Total price for this order item.
  * @author Allynn Alvarico
+ * @CreatedOn
+ * @Date: 23/12/2025
+ * @By: Allynn Alvarico
+ * @UpdatedOn
+ * @Date: 23/12/2025
+ * @By: Allynn Alvarico
  */
 @Entity
 @Table(name = "Orders_Items")

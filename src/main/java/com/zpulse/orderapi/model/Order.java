@@ -20,6 +20,12 @@ import java.time.LocalDate;
  * @-created_at: Date when the order was created.
  * @-updated_at: Date when the order was last updated.
  * @author Allynn Alvarico
+ * @CreatedOn
+ * @Date: 23/12/2025
+ * @By: Allynn Alvarico
+ * @UpdatedOn
+ * @Date: 23/12/2025
+ * @By: Allynn Alvarico
  */
 @Entity
 @Table(name = "Orders")

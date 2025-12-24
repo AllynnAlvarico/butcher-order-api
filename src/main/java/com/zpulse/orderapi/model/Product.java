@@ -21,6 +21,12 @@ import java.time.LocalDate;
  * @-created_at: Date when the product was created.
  * @-updated_at: Date when the product was last updated.
  * @author Allynn Alvarico
+ * @CreatedOn
+ * @Date: 23/12/2025
+ * @By: Allynn Alvarico
+ * @UpdatedOn
+ * @Date: 23/12/2025
+ * @By: Allynn Alvarico
  */
 
 @Entity

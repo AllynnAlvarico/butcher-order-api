@@ -1,7 +1,7 @@
 CREATE TABLE Products(
 	product_id INT AUTO_INCREMENT PRIMARY KEY,
 	product_name VARCHAR(50),
-    product_category VARCHAR(50) NOT NULL UNIQUE,
+    product_category VARCHAR(50) NOT NULL,
     price_per_kg DECIMAL(8,2),
     available BOOLEAN,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
