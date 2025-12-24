@@ -55,7 +55,7 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public List<Customer> getAllCustomers() {
         System.out.println(this.getClass().getName() + ": (getAllCustomers) Fetching all customers");
         return customerService.getAll();
@@ -69,7 +69,7 @@ public class CustomerController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @PostMapping
+    @PostMapping("/register")
     public Customer createCustomer(@RequestBody Customer customer) {
         System.out.println(this.getClass().getName() + ": (createCustomer) Creating new customer");
         return customerService.createCustomer(customer);
