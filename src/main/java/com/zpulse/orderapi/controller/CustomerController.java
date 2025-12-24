@@ -50,17 +50,33 @@ import java.util.List;
 public class CustomerController {
     private final CustomerService customerService;
 
+    /**
+     * @Constructor
+     * @UpdatedBy: Allynn Alvarico
+     * @param customerService
+     */
     public CustomerController(CustomerService customerService) {
         System.out.println(this.getClass().getName() + ": (Constructor) Initializing CustomerController");
         this.customerService = customerService;
     }
 
+    /**
+     * @Method: getAllCustomers
+     * @UpdatedBy: Allynn Alvarico
+     * @Return: List of Customers
+     */
     @GetMapping("/all")
     public List<Customer> getAllCustomers() {
         System.out.println(this.getClass().getName() + ": (getAllCustomers) Fetching all customers");
         return customerService.getAll();
     }
 
+    /**
+     * @Method: getCustomer
+     * @UpdatedBy: Allynn Alvarico
+     * @param id
+     * @Return: Customer's Data
+     */
     @GetMapping("/{id}")
     public ResponseEntity<Customer> getCustomer(@PathVariable Long id) {
         System.out.println(this.getClass().getName() + ": (getCustomer) Fetching customer with ID: " + id);
@@ -69,12 +85,24 @@ public class CustomerController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    /**
+     * @Method: createCustomer
+     * @UpdatedBu: Allynn Alvarico
+     * @param customer
+     * @Return: Customer's Data
+     */
     @PostMapping("/register")
     public Customer createCustomer(@RequestBody Customer customer) {
         System.out.println(this.getClass().getName() + ": (createCustomer) Creating new customer");
         return customerService.createCustomer(customer);
     }
 
+    /**
+     * @Method: deleteCustomer
+     * @UpdatedBy: Allynn Alvarico
+     * @param id
+     * @Return: String "NO_CONTENT"
+     */
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteCustomer(@PathVariable Long id) {
         System.out.println(this.getClass().getName() + ": (deleteCustomer) Deleting customer with ID: " + id);

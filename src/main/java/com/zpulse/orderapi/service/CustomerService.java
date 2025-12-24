@@ -41,31 +41,64 @@ import java.util.Optional;
 @Service
 public class CustomerService {
     private final CustomerRepository customerRepository;
+    /**
+     * @Constructor
+     * @UpdatedBy: Allynn Alvarico
+     * @param customerRepository
+     */
     public CustomerService(CustomerRepository customerRepository) {
         System.out.println(this.getClass().getName() + ": (Constructor) Initializing CustomerService");
         this.customerRepository = customerRepository;
     }
 
+    /**
+     * @Method: createCustomer
+     * @UpdatedBy: Allynn Alvarico
+     * @Return: List of Customer's Data
+     */
     public Customer createCustomer(Customer customer) {
         System.out.println(this.getClass().getName() + ": (createCustomer) Creating customer: " + customer.toString());
         customer.setCreatedAt(LocalDateTime.now());
         return customerRepository.save(customer);
     }
+
+    /**
+     * @Method: findByEmail
+     * @UpdatedBy: Allynn Alvarico
+     * @param email
+     * @Return List of Customer's Data
+     */
     public Optional<Customer> findByEmail(String email) {
         System.out.println(this.getClass().getName() + ": (findByEmail) Finding customer by email: " + email);
         return customerRepository.findByEmail(email);
     }
 
+    /**
+     * @Method: getAll
+     * @UpdatedBy: Allynn Alvarico
+     * @Return List of Customers
+     */
     public List<Customer> getAll() {
         System.out.println(this.getClass().getName() + ": (getAll) Retrieving all customers");
         return customerRepository.findAll();
     }
 
+    /**
+     * @Method: getById
+     * @UpdatedBy: Allynn Alvarico
+     * @param id
+     * @Return List of Customer's Data
+     */
     public Optional<Customer> getById(Long id) {
         System.out.println(this.getClass().getName() + ": (getById) Retrieving customer by ID: " + id);
         return customerRepository.findById(id);
     }
 
+    /**
+     * @Method: delete
+     * @UpdatedBy: Allynn Alvarico
+     * @param id
+     */
     public void delete(Long id) {
         System.out.println(this.getClass().getName() + ": (delete) Deleting customer by ID: " + id);
         customerRepository.deleteById(id);
