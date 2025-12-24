@@ -2,9 +2,8 @@ package com.zpulse.orderapi.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Getter;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  * Entity class representing a Customer.
@@ -54,6 +53,6 @@ public class Customer {
     private String email;
 
     @Column(name = "created_at")
-    private LocalDate  createdAt;
+    private LocalDateTime createdAt;
 
 }

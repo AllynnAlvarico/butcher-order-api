@@ -4,6 +4,7 @@ import com.zpulse.orderapi.model.Customer;
 import com.zpulse.orderapi.repository.CustomerRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 /**
@@ -34,39 +35,39 @@ import java.util.Optional;
  * @Date: 23/12/2025
  * @By: Allynn Alvarico
  * @UpdatedOn
- * @Date: 23/12/2025
+ * @Date: 24/12/2025
  * @By: Allynn Alvarico
  */
 @Service
 public class CustomerService {
-//    private static final Logger LOG = LoggerFactory.getLogger(CustomerService.class);
     private final CustomerRepository customerRepository;
     public CustomerService(CustomerRepository customerRepository) {
-//        LOG.info("Initializing CustomerService");
+        System.out.println(this.getClass().getName() + ": (Constructor) Initializing CustomerService");
         this.customerRepository = customerRepository;
     }
 
     public Customer createCustomer(Customer customer) {
-//        LOG.info("Creating customer with email: {}", customer.getEmail());
+        System.out.println(this.getClass().getName() + ": (createCustomer) Creating customer: " + customer.toString());
+        customer.setCreatedAt(LocalDateTime.now());
         return customerRepository.save(customer);
     }
     public Optional<Customer> findByEmail(String email) {
-//        LOG.info("Finding customer by email: {}", email);
+        System.out.println(this.getClass().getName() + ": (findByEmail) Finding customer by email: " + email);
         return customerRepository.findByEmail(email);
     }
 
     public List<Customer> getAll() {
-//        LOG.info("Retrieving all customers");
+        System.out.println(this.getClass().getName() + ": (getAll) Retrieving all customers");
         return customerRepository.findAll();
     }
 
     public Optional<Customer> getById(Long id) {
-//        LOG.info("Retrieving customer by ID: {}", id);
+        System.out.println(this.getClass().getName() + ": (getById) Retrieving customer by ID: " + id);
         return customerRepository.findById(id);
     }
 
     public void delete(Long id) {
-//        LOG.info("Deleting customer by ID: {}", id);
+        System.out.println(this.getClass().getName() + ": (delete) Deleting customer by ID: " + id);
         customerRepository.deleteById(id);
     }
 }

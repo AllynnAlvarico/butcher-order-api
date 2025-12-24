@@ -2,7 +2,6 @@ package com.zpulse.orderapi.controller;
 
 import com.zpulse.orderapi.model.Customer;
 import com.zpulse.orderapi.service.CustomerService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -49,22 +48,22 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/customers")
 public class CustomerController {
-//    private static final Logger LOG = LoggerFactory.getLogger(CustomerController.class);
     private final CustomerService customerService;
 
     public CustomerController(CustomerService customerService) {
+        System.out.println(this.getClass().getName() + ": (Constructor) Initializing CustomerController");
         this.customerService = customerService;
     }
 
     @GetMapping
     public List<Customer> getAllCustomers() {
-//        LOG.info("Fetching all customers");
+        System.out.println(this.getClass().getName() + ": (getAllCustomers) Fetching all customers");
         return customerService.getAll();
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Customer> getCustomer(@PathVariable Long id) {
-//        LOG.info("Fetching customer with id: {}", id);
+        System.out.println(this.getClass().getName() + ": (getCustomer) Fetching customer with ID: " + id);
         return customerService.getById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
@@ -72,13 +71,13 @@ public class CustomerController {
 
     @PostMapping
     public Customer createCustomer(@RequestBody Customer customer) {
-//        LOG.info("Creating new customer with email: {}", customer.getEmail());
+        System.out.println(this.getClass().getName() + ": (createCustomer) Creating new customer");
         return customerService.createCustomer(customer);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteCustomer(@PathVariable Long id) {
-//        LOG.info("Deleting customer with id: {}", id);
+        System.out.println(this.getClass().getName() + ": (deleteCustomer) Deleting customer with ID: " + id);
         customerService.delete(id);
         return ResponseEntity.noContent().build();
     }
