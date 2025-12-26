@@ -1,0 +1,22 @@
+section {
+  @apply flex flex-col items-center justify-center bg-gray-200;
+  @apply rounded-xl;
+  @apply h-1/2 w-1/2;
+  @apply mx-auto my-44 p-5;
+}
+form {
+  @apply flex flex-col;
+  @apply w-1/2;
+  @apply space-y-4;
+}
+h1 {
+  @apply text-2xl font-bold mb-4;
+}
+input {
+  @apply p-2 border border-gray-300 rounded;
+}
+button {
+  @apply bg-blue-500 text-white p-2 rounded;
+  @apply hover:bg-blue-600;
+  @apply w-1/3 mx-auto;
+}
