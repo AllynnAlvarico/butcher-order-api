@@ -4,6 +4,7 @@ import com.zpulse.orderapi.model.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -24,10 +25,12 @@ import java.util.Optional;
  * @Date: 23/12/2025
  * @By: Allynn Alvarico
  * @UpdatedOn
- * @Date: 23/12/2025
+ * @Date: 26/12/2025
  * @By: Allynn Alvarico
  */
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
     Optional<Customer> findByEmail(String email);
+    // added List findByLastName method to find customers by their last name
+    List<Customer> findByLastName(String lastName);
 }
