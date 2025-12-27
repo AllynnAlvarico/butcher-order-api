@@ -1,0 +1,32 @@
+/**
+ * CSS Styling for styling the html or jsx react file
+ * > description 
+ *  - This is the folder that contain all the Main styling code
+ * > Create On 
+ *  - Date: 25/12/2025
+ *  - By: Anson Ling
+ * > Update On 
+ *  - Date: 26/12/2025
+ *  - By: Anson Ling
+ */
+
+ @import url('../index.css');
+
+
+section {
+    width: 100%;
+    height: 100vh;
+}
+
+#home {
+    background-color: var(--bg-color3);
+}
+#about {
+    background-color: var(--bg-color4);
+}
+#onlineshop {
+    background-color: var(--bg-color3);
+}
+#contact {
+    background-color: var(--bg-color4);
+}

@@ -1,0 +1,30 @@
+/**
+ * CSS Styling for styling the html or jsx react file
+ * > description 
+ *  - This is the folder that contain all the index styling code
+ *  - This is also where the global variable be defined
+ * > Create On 
+ *  - Date: 25/12/2025
+ *  - By: Anson Ling
+* > Update On 
+ *  - Date: 26/12/2025
+ *  - By: Anson Ling
+ */
+
+:root {
+  --font-family1: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-family2: 'Josefin Sans', sans-serif;
+
+  --bg-color1: #5C6F2B;
+  --bg-color2: #c65c38;
+  --bg-color3: #D8C9A7;
+  --bg-color4: #EEEEEE;
+
+  --primary-txt1: hsl(0, 0, 0);
+  --primary-txt2: hsl(0, 0, 15);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family1);
+}

@@ -1,0 +1,25 @@
+/**
+* CSS Styling for styling the html or jsx react file
+* > description 
+*  - This is the Card css file for styling
+* > Create On 
+*  - Date: 26/12/2025
+*  - By: Anson Ling
+*/
+
+.card_ctr {
+    padding: 14px;
+    width: 200px;
+    height: 80px;
+    background-color: var(--bg-color3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    gap: 1rem;
+}
+
+.symbol {
+    font-size: 1.7rem;
+    color: var(--bg-color1);
+}

@@ -1,0 +1,59 @@
+/**
+ * CSS Styling for styling the html or jsx react file
+ * > description 
+ *  - This is the folder that contain all the header styling code
+ * > Create On 
+ *  - Date: 25/12/2025
+ *  - By: Anson Ling
+ * > Update On 
+ *  - Date: 26/12/2025
+ *  - By: Anson Ling
+ */
+
+ @import url('../../index.css');
+
+.header_container {
+    top: 0;
+    right: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--bg-color4);
+}
+
+.logoIcons {
+    width: 4rem;
+    height: 4rem;
+    margin-left: 1rem;
+}
+
+.menu {
+    list-style-type: none;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    gap: clamp(.5rem, 4.5vw, 4rem);
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+.left_header {
+    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.icons {
+    width: 1.8rem;
+    height: 1.8rem;
+}

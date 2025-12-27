@@ -1,0 +1,52 @@
+/**
+ * CSS Styling for styling the html or jsx react file
+ * > description 
+ *  - This is the About css file for styling
+ * > Create On 
+ *  - Date: 26/12/2025
+ *  - By: Anson Ling
+ */
+
+@import url('../../index.css');
+
+.about_ctr {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+}
+.about_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
+.about_title {
+    text-align: center;
+    color: var(--bg-color2);
+}
+.about_card_ctr {
+    padding: 10px;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--bg-color3);
+    border: 2px solid var(--bg-color1);
+    border-radius: 8px;
+}
+.shopImg {
+    width: 150px;
+    height: 120px;
+    border-radius: 8px;
+}
+article {
+    font-size: 1.25rem;
+}
+.cards_ctr {
+    display: flex;
+    gap: 2.5rem;
+}
