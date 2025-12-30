@@ -74,14 +74,14 @@ public class CustomerService {
     }
 
     /**
-     * @Method: findByLastName
+     * @Method: findBylast_name
      * @UpdatedBy: Allynn Alvarico (26/12/2025) 02:01 AM
-     * @param lastName
+     * @param last_name
      * @Return List of Customers
      */
-    public List<Customer> findByLastName(String lastName) {
-        System.out.println(this.getClass().getName() + ": (findByLastName) Finding customers by last name: " + lastName);
-        return customerRepository.findByLastName(lastName);
+    public List<Customer> findByLastName(String last_name) {
+        System.out.println(this.getClass().getName() + ": (findByLastName) Finding customers by last name: " + last_name);
+        return customerRepository.findByLastName(last_name);
     }
 
     /**
