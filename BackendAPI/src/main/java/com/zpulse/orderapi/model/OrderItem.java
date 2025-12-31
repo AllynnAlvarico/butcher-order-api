@@ -1,7 +1,10 @@
 package com.zpulse.orderapi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
 
 /**
  * Entity class representing an Order Item.
@@ -23,6 +26,9 @@ import lombok.Data;
  * @UpdatedOn
  * @Date: 23/12/2025
  * @By: Allynn Alvarico
+ * @UpdateOn
+ * @Date: 29/12/2025
+ * @By: Anson Ling Guang Cheng
  */
 @Entity
 @Table(name = "Orders_Items")
@@ -31,17 +37,57 @@ public class OrderItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String order_item_id;
+    private Long order_item_id;
 
-    @Column(name = "order_id", nullable = false)
-    private String order_id;
-
-    @Column(name = "product_id", nullable = false)
-    private String product_id;
+    /**
+     * @UpdatedBy: Anson Ling Guang Cheng
+     * @Reason:
+     *  - Because I need to use join method for SQL Query
+     *  - So I need to link this to another object that is connected with
+     *  - And define the relation using the @OneToMany or @ManyToOne annotation
+     *  - To map that relationship in our database
+     *  - Future Explanation & Source: https://www.baeldung.com/jpa-joincolumn-vs-mappedby
+     */
+//    @Column(name = "order_id", nullable = false)
+//    private String order_id;
+//
+//    @Column(name = "product_id", nullable = false)
+//    private String product_id;
 
     @Column(name = "weight_kg")
     private Double weight_kg;
 
     @Column(name = "total_price")
     private Double total_price;
+
+    /**
+     * @ManyToOne annotation for define the relationship
+     * @UpdatedBy: Anson Ling Guang Cheng
+     */
+    @ManyToOne(
+            cascade = {
+                    CascadeType.DETACH,
+                    CascadeType.MERGE,
+                    CascadeType.REFRESH,
+                    CascadeType.PERSIST
+            }
+    )
+    @JoinColumn(name = "order_id")
+    public Order order;
+
+    /**
+     * @ManyToOne annotation for define the relationship
+     * @UpdatedBy: Anson Ling Guang Cheng
+     */
+    @ManyToOne(
+            cascade = {
+                    CascadeType.DETACH,
+                    CascadeType.MERGE,
+                    CascadeType.REFRESH,
+                    CascadeType.PERSIST
+            }
+    )
+    @JoinColumn(name = "product_id")
+    public Product product;
+
 }

@@ -11,14 +11,16 @@
  *  - By: Anson Ling
  */
 
+ @import url('https://fonts.googleapis.com/css2?family=Popins:wght@200;400;700&display=swap');
+
 :root {
-  --font-family1: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-family1: 'Poppins', sans-serif;
   --font-family2: 'Josefin Sans', sans-serif;
 
-  --bg-color1: #5C6F2B;
+  --bg-color1: #aa3c3b;
   --bg-color2: #c65c38;
-  --bg-color3: #D8C9A7;
-  --bg-color4: #EEEEEE;
+  --bg-color3: white;
+  --bg-color4: white;
 
   --primary-txt1: hsl(0, 0, 0);
   --primary-txt2: hsl(0, 0, 15);

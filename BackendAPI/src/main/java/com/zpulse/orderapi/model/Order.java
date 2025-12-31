@@ -1,9 +1,12 @@
 package com.zpulse.orderapi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  * Entity class representing an Order.
@@ -26,6 +29,9 @@ import java.time.LocalDate;
  * @UpdatedOn
  * @Date: 23/12/2025
  * @By: Allynn Alvarico
+ * @UpdateOn
+ * @Date: 29/12/2025
+ * @By: Anson Ling Guang Cheng
  */
 @Entity
 @Table(name = "Orders")
@@ -36,7 +42,7 @@ public class Order {
     private String order_id;
 
     @Column(name = "customer_id")
-    private String customer_id;
+    private int customer_id;
 
     @Column(name = "order_status")
     private String order_status;
@@ -49,4 +55,21 @@ public class Order {
 
     @Column(name = "updated_at")
     private LocalDate updated_at;
+
+    /**
+     * @OneToMany annotation for define the relationship
+     * @UpdatedBy: Anson Ling Guang Cheng
+     */
+    @OneToMany(
+            mappedBy = "order",
+            cascade =
+                    {
+                            CascadeType.DETACH,
+                            CascadeType.MERGE,
+                            CascadeType.PERSIST,
+                            CascadeType.REFRESH
+                    }
+    )
+    @JsonIgnore
+    public List<OrderItem> orderItems;
 }

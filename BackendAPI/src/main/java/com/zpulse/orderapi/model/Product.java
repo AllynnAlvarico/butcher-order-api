@@ -1,9 +1,12 @@
 package com.zpulse.orderapi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  * Entity class representing a Product.
@@ -27,6 +30,12 @@ import java.time.LocalDate;
  * @UpdatedOn
  * @Date: 23/12/2025
  * @By: Allynn Alvarico
+ * @UpdateOn
+ * @Date: 29/12/2025
+ * @By: Anson Ling Guang Cheng
+ * @UpdateOn
+ *  * @Date: 31/12/2025
+ *  * @By: Anson Ling Guang Cheng
  */
 
 @Entity
@@ -35,7 +44,7 @@ import java.time.LocalDate;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String product_id;
+    private int product_id;
 
     @Column(name = "product_name")
     private String product_name;
@@ -54,5 +63,29 @@ public class Product {
 
     @Column(name = "updated_at")
     private LocalDate updated_at;
+
+    /**
+     * image for allow user to upload the new image
+     * @UpdatedBy: Anson Ling Guang Cheng
+     */
+    @Column(name = "product_image")
+    private String product_image;
+
+    /**
+     * @OneToMany annotation for define the relationship
+     * @UpdatedBy: Anson Ling Guang Cheng
+     */
+    @OneToMany(
+            mappedBy = "product",
+            cascade =
+                    {
+                            CascadeType.DETACH,
+                            CascadeType.MERGE,
+                            CascadeType.PERSIST,
+                            CascadeType.REFRESH
+                    }
+    )
+    @JsonIgnore
+    public List<OrderItem> orderItems;
 
 }

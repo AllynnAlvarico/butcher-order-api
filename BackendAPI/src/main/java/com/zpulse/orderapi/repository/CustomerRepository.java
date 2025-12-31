@@ -29,8 +29,16 @@ import java.util.Optional;
  * @By: Allynn Alvarico
  */
 @Repository
-public interface CustomerRepository extends JpaRepository<Customer, Long> {
+public interface CustomerRepository extends JpaRepository<Customer, Integer> {
     Optional<Customer> findByEmail(String email);
+
+    // @UpdatedOn
+    // @Date: 27/12/2025
+    // @By: Anson Ling Guang Cheng
+    // I'm changing the string lastName to last_name as I was getting an error here
+    // The error previously I get is due to the Customer model have a string variable name last_name
+    // And the method here are looking for the method name something end with last_name instead of lastName
+
     // added List findByLastName method to find customers by their last name
-    List<Customer> findByLastName(String lastName);
+    List<Customer> findCustomerByLastName(String last_name);
 }

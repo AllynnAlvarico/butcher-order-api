@@ -41,19 +41,38 @@
     font-weight: 400;
     cursor: pointer;
 }
-
-a {
+.navigator {
     text-decoration: none;
+    color: var(--primary-txt1);
+}
+.navigator:hover {
+    color: var(--bg-color2);
+}
+.navigator:active  {
+    color: var(--bg-color2);
+    border-bottom: 2px solid var(--bg-color1);
 }
 
 .left_header {
     margin-right: 1rem;
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 2rem;
+}
+.wishlist_ctr, .order_ctr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 500;
+}
+.loginBtn {
+    width: 5rem;
+    height: 3rem;
+    border: 1.5px solid;
+    border-radius: .5rem;
 }
 
 .icons {
-    width: 1.8rem;
-    height: 1.8rem;
+    width: 1.5rem;
+    height: 1.5rem;
 }

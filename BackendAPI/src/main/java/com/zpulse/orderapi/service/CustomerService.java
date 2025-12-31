@@ -81,7 +81,7 @@ public class CustomerService {
      */
     public List<Customer> findByLastName(String lastName) {
         System.out.println(this.getClass().getName() + ": (findByLastName) Finding customers by last name: " + lastName);
-        return customerRepository.findByLastName(lastName);
+        return customerRepository.findCustomerByLastName(lastName);
     }
 
     /**
@@ -100,7 +100,7 @@ public class CustomerService {
      * @param id
      * @Return List of Customer's Data
      */
-    public Optional<Customer> getById(Long id) {
+    public Optional<Customer> getById(int id) {
         System.out.println(this.getClass().getName() + ": (getById) Retrieving customer by ID: " + id);
         return customerRepository.findById(id);
     }
@@ -110,7 +110,7 @@ public class CustomerService {
      * @UpdatedBy: Allynn Alvarico
      * @param id
      */
-    public void delete(Long id) {
+    public void delete(int id) {
         System.out.println(this.getClass().getName() + ": (delete) Deleting customer by ID: " + id);
         customerRepository.deleteById(id);
     }

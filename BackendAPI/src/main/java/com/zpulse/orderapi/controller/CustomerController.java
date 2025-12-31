@@ -78,7 +78,7 @@ public class CustomerController {
      * @Return: Customer's Data
      */
     @GetMapping("/{id}")
-    public ResponseEntity<Customer> getCustomer(@PathVariable Long id) {
+    public ResponseEntity<Customer> getCustomer(@PathVariable int id) {
         System.out.println(this.getClass().getName() + ": (getCustomer) Fetching customer with ID: " + id);
         return customerService.getById(id)
                 .map(ResponseEntity::ok)
@@ -104,7 +104,7 @@ public class CustomerController {
      * @Return: String "NO_CONTENT"
      */
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteCustomer(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteCustomer(@PathVariable int id) {
         System.out.println(this.getClass().getName() + ": (deleteCustomer) Deleting customer with ID: " + id);
         customerService.delete(id);
         return ResponseEntity.noContent().build();

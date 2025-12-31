@@ -32,19 +32,26 @@ import java.time.LocalDateTime;
  * @By: Allynn Alvarico
  */
 @Entity
-@Table(name = "customers")
 @Data
+@Table(name = "customers")
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "customer_id")
-    private Long customer_id;
+    private int customer_id;
+
 
     @Column(name = "first_name")
     private String first_name;
 
+    // @UpdatedOn
+    // @Date: 27/12/2025
+    // @By: Anson Ling Guang Cheng
+    // I'm changing this string variable from last_name to lastName
+    // As the spring doesn't recommend and like you name the variable
+    // Exactly the same as column which spring will get confuse and cause error
     @Column(name = "last_name")
-    private String last_name;
+    private String lastName;
 
     @Column(name = "phone")
     private String phone;
