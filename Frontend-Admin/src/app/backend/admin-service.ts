@@ -20,7 +20,7 @@ export interface AdminCredentials {
 // AdminService handles admin-related operations, such as verifying admin credentials.
 export class AdminService {
   // Test API endpoint for admin verification
-  private apiUrl = 'http://localhost:8080/admin/dashboard';
+  private apiUrl = 'http://localhost:8080/api/admin/verification';
 
   constructor(private http: HttpClient) {}
 
@@ -29,6 +29,7 @@ export class AdminService {
    * @param username
    * @param password
    * @returns Observable<boolean> indicating whether the credentials are valid.
+   * @author Allynn Alvarico
    */
   verifyAdmin(username: string, password: string): Observable<boolean> {
     const params = new HttpParams()

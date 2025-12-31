@@ -24,16 +24,24 @@ export class LoginPage {
   ) {}
 
   onSubmit() {
+    console.log("Submitting login form");
     if (!this.username || !this.password) {
+      console.log("Username or password is empty");
       this.loginError = 'Please enter username and password';
       return;
     }
+    this.loginService();
 
     this.isLoading = true;
     this.loginError = '';
 
+
+  }
+  loginService() {
+    console.log("Login service called");
     this.adminService.verifyAdmin(this.username, this.password).subscribe({
       next: (verified: boolean) => {
+        console.log("Login response received:", verified);
         this.isLoading = false;
         if (verified) {
           this.isLoggedIn = true;
