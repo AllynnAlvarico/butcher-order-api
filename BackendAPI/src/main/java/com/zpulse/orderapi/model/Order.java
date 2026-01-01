@@ -62,13 +62,8 @@ public class Order {
      */
     @OneToMany(
             mappedBy = "order",
-            cascade =
-                    {
-                            CascadeType.DETACH,
-                            CascadeType.MERGE,
-                            CascadeType.PERSIST,
-                            CascadeType.REFRESH
-                    }
+            cascade = { CascadeType.ALL },
+            orphanRemoval = true
     )
     @JsonIgnore
     public List<OrderItem> orderItems;

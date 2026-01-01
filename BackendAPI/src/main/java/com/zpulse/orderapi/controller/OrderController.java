@@ -45,6 +45,9 @@ import java.util.Optional;
  * @UpdatedOn
  * @Date: 29/12/2025
  * @By: Anson Ling Guang Cheng
+ * @UpdatedOn
+ * @Date: 01/01/2026
+ * @By: Anson Ling Guang Cheng
  */
 
 @RestController
@@ -102,6 +105,16 @@ public class OrderController {
         return new ResponseEntity<>("Order has been place!", HttpStatus.OK);
     }
 
+    // This method allow user to cancel the order anytime
+    @PostMapping("/order-cancel")
+    public ResponseEntity<String> cancelOrder(@RequestParam int id) {
+        logger.warn("ID: " + id);
+        orderItemService.deleteOrderById(id);
+        orderService.deleteOrderByID(id);
+        return new ResponseEntity<>("Order has been cancel successfully!", HttpStatus.OK);
+    }
+
+    // Object functional method for passing data between the object
     public OrderItem passingObjectData(OrdersDTO ordersDTO, Order order, Product product) {
         OrderItem orderItem = new OrderItem();
         orderItem.setOrder(order);
@@ -110,4 +123,5 @@ public class OrderController {
         orderItem.setTotal_price(ordersDTO.getOrder().getTotal_price());
         return orderItem;
     }
+
 }

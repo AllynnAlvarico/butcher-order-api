@@ -3,6 +3,8 @@ package com.zpulse.orderapi.service;
 import com.zpulse.orderapi.dto.OrderItemDTO;
 import com.zpulse.orderapi.model.OrderItem;
 import com.zpulse.orderapi.repository.OrderItemRepository;
+import jakarta.transaction.Transactional;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -52,7 +54,15 @@ public class OrderItemService {
         return orderItemRepository.getAllOrdersByID(id);
     }
 
+    // save order item to database
     public OrderItem saveOrderItem(OrderItem orderItem) {
         return orderItemRepository.save(orderItem);
+    }
+
+    // delete order from database
+    @Modifying
+    @Transactional
+    public void deleteOrderById(int id) {
+        orderItemRepository.deleteById(id);
     }
 }

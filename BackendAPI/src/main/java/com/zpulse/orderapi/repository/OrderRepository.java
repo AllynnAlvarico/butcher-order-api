@@ -29,18 +29,14 @@ import java.util.List;
  * @UpdatedOn
  * @Date: 23/12/2025
  * @By: Allynn Alvarico
+ * @UpdatedOn
+ * @Date: 01/01/2026
+ * @By: Anson Ling Guang Cheng
  */
 @Repository
-public interface OrderRepository extends JpaRepository<Order, Long> {
+public interface OrderRepository extends JpaRepository<Order, Integer> {
 
-    // need update and fix
-//    @Query(
-//            "from Order o " +
-//                    "join OrderItem oi on oi.order.order_id = o.order_id " +
-//                    "left join Product p on p.product_id = oi.product.product_id " +
-//                    "where o.customer_id = :customerId"
-//    )
-//    public List<Order> getAllOrdersByID(@Param("customerId") int customerId);
+
 
 
 }

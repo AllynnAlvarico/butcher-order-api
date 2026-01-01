@@ -2,9 +2,9 @@ package com.zpulse.orderapi.service;
 
 import com.zpulse.orderapi.model.Order;
 import com.zpulse.orderapi.repository.OrderRepository;
+import jakarta.transaction.Transactional;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 /**
  * Service class for managing Customer entities.
@@ -30,6 +30,9 @@ import java.util.List;
  * @CreatedOn
  * @Date: 27/12/2025
  * @By: Anson Ling Guang Cheng
+ * @UpdatedOn
+ * @Date: 01/01/2026
+ * @By: Anson Ling Guang Cheng
  */
 
 @Service
@@ -48,5 +51,16 @@ public class OrderService {
 
     public Order saveOrder(Order order) {
         return orderRepository.save(order);
+    }
+
+    /**
+     * @Method: deleteOrderByID
+     * @UpdatedBy: Anson Ling Guang Cheng
+     * @Return: Delete the specific order to delete by id
+     */
+    @Modifying
+    @Transactional
+    public void deleteOrderByID(int id) {
+        orderRepository.deleteById(id);
     }
 }

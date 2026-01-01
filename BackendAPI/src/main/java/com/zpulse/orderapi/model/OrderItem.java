@@ -65,12 +65,7 @@ public class OrderItem {
      * @UpdatedBy: Anson Ling Guang Cheng
      */
     @ManyToOne(
-            cascade = {
-                    CascadeType.DETACH,
-                    CascadeType.MERGE,
-                    CascadeType.REFRESH,
-                    CascadeType.PERSIST
-            }
+            cascade = { CascadeType.ALL }
     )
     @JoinColumn(name = "order_id")
     public Order order;
