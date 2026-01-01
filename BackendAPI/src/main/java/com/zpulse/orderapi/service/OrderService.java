@@ -46,7 +46,7 @@ public class OrderService {
         this.orderRepository = orderRepository;
     }
 
-    public List<Order> getAllOrdersById(int id) {
-        return orderRepository.getAllOrdersByID(id);
+    public Order saveOrder(Order order) {
+        return orderRepository.save(order);
     }
 }

@@ -33,13 +33,14 @@ import java.util.List;
 @Repository
 public interface OrderRepository extends JpaRepository<Order, Long> {
 
-    @Query(
-            "from Order o " +
-                    "join OrderItem oi on oi.order.order_id = o.order_id " +
-                    "left join Product p on p.product_id = oi.product.product_id " +
-                    "where o.customer_id = :customerId"
-    )
-    public List<Order> getAllOrdersByID(@Param("customerId") int customerId);
+    // need update and fix
+//    @Query(
+//            "from Order o " +
+//                    "join OrderItem oi on oi.order.order_id = o.order_id " +
+//                    "left join Product p on p.product_id = oi.product.product_id " +
+//                    "where o.customer_id = :customerId"
+//    )
+//    public List<Order> getAllOrdersByID(@Param("customerId") int customerId);
 
 
 }

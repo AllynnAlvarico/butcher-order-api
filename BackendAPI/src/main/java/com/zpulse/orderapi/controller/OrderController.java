@@ -1,13 +1,20 @@
 package com.zpulse.orderapi.controller;
 
+import com.zpulse.orderapi.dto.OrdersDTO;
 import com.zpulse.orderapi.model.Order;
+import com.zpulse.orderapi.model.OrderItem;
+import com.zpulse.orderapi.model.Product;
+import com.zpulse.orderapi.service.OrderItemService;
 import com.zpulse.orderapi.service.OrderService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import com.zpulse.orderapi.service.ProductService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * * Controller class for managing Order-related API endpoints.
@@ -44,20 +51,63 @@ import java.util.List;
 @RequestMapping("api/order")
 public class OrderController {
 
+    // creating a logger
+    private final Logger logger = LoggerFactory.getLogger(OrderController.class);
+
     private final OrderService orderService;
+    private final OrderItemService orderItemService;
+    private final ProductService productService;
 
     /**
      * @Constructor
      * @UpdatedBy: Anson Ling Guang Cheng
      * @param orderService
+     * @param orderItemService
+     * @param productService
      */
-    public OrderController(OrderService orderService) {
+    public OrderController(OrderService orderService, OrderItemService orderItemService, ProductService productService) {
         this.orderService = orderService;
+        this.orderItemService = orderItemService;
+        this.productService = productService;
     }
 
+    // post method that allow user to place an order
+    @PostMapping("/save-order")
+    public ResponseEntity<String> saveOrders(
+            @RequestBody OrdersDTO ordersDTO
+    ) {
+        // find product by id
+        Optional<Product> product = productService.findProductByID(ordersDTO.getOrderItemDTO().getProduct_id());
 
-    @GetMapping("/orders")
-    public List<Order> orders(@RequestParam int customerId) {
-        return orderService.getAllOrdersById(customerId);
+        // logging debug for product
+        logger.warn("Product ID: " + ordersDTO.getOrderItemDTO().getProduct_id());
+
+        // check if product is empty then return not found http status
+        if (product.isEmpty())
+            return new ResponseEntity<>("Product did not found!", HttpStatus.NOT_FOUND);
+
+        // save the order to order table in database
+        Order order = orderService.saveOrder(ordersDTO.getOrder());
+
+        // method for passing the object data to order item object
+        OrderItem orderItem = passingObjectData(ordersDTO, order, product.get());
+
+        // save order item to order_item table in database
+        OrderItem orderitem = orderItemService.saveOrderItem(orderItem);
+
+        // if order or order item is null then return bad request
+        // otherwise return OK http status
+        if (order == null || orderitem == null)
+            return new ResponseEntity<>("Ops...something went wrong...", HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>("Order has been place!", HttpStatus.OK);
+    }
+
+    public OrderItem passingObjectData(OrdersDTO ordersDTO, Order order, Product product) {
+        OrderItem orderItem = new OrderItem();
+        orderItem.setOrder(order);
+        orderItem.setProduct(product);
+        orderItem.setWeight_kg(ordersDTO.getOrderItemDTO().getWeight_kg());
+        orderItem.setTotal_price(ordersDTO.getOrder().getTotal_price());
+        return orderItem;
     }
 }

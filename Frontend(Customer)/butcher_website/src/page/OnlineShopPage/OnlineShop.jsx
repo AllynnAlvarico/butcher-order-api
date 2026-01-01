@@ -5,7 +5,10 @@ import { useEffect } from 'react';
 export default function OnlineShop() {
 
     useEffect(() => {
-        
+        axios.get(``)
+        .then((res) => {
+            res
+        })
     }, [])
 
     return (

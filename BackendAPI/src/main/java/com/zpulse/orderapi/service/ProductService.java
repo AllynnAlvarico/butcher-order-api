@@ -11,6 +11,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 import java.nio.file.Path;
+import java.util.Optional;
 import java.util.UUID;
 
 /**
@@ -63,6 +64,11 @@ public class ProductService {
         return productRepository.limitProducts();
     }
 
+    /**
+     * @Method: updateImageById
+     * @UpdatedBy: Anson Ling Guang Cheng
+     * @Non-Return: update product image
+     */
     public void updateImageById(int id, MultipartFile multipartFile) throws IOException {
         String uploadDirection = "src/main/resources/static/uploads/products_images/";
         String originalName = multipartFile.getOriginalFilename();
@@ -71,6 +77,14 @@ public class ProductService {
         Files.createDirectories((filePath.getParent()));
         Files.write(filePath, multipartFile.getBytes());
         productRepository.addProductImageById(id, newFileName);
+    }
 
+    /**
+     * @Method: findProductByID
+     * @UpdatedBy: Anson Ling Guang Cheng
+     * @Return: Find the specific type of product by id
+     */
+    public Optional<Product> findProductByID(int id) {
+        return productRepository.findById(id);
     }
 }

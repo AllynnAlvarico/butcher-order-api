@@ -1,7 +1,12 @@
 package com.zpulse.orderapi.service;
 
+import com.zpulse.orderapi.dto.OrderItemDTO;
+import com.zpulse.orderapi.model.OrderItem;
 import com.zpulse.orderapi.repository.OrderItemRepository;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
 
 /**
  * Service class for managing Customer entities.
@@ -42,5 +47,12 @@ public class OrderItemService {
         this.orderItemRepository = orderItemRepository;
     }
 
+    // A method for OrderItem controller for getting a list of order data by id
+    public Optional<OrderItem> getAllOrderById(int id) {
+        return orderItemRepository.getAllOrdersByID(id);
+    }
 
+    public OrderItem saveOrderItem(OrderItem orderItem) {
+        return orderItemRepository.save(orderItem);
+    }
 }
